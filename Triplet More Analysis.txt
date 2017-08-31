@@ -1,0 +1,86 @@
+At each stage of building the triple-move list:
+
+1 one move
+2 two move (if 2-3 actions left)
+3 three move (if 3 actions left)
+4 melee
+5 cannon
+
+
+---------------------
+
+
+1. one move
+
+	1.1.	one move, one move
+
+		1.1.1	one move, one move, one move
+		1.1.4	one move, one move, melee
+		1.1.5	one move, one move, cannon
+		
+	1.2	one move, two move
+	
+	1.4	one move, melee
+		
+		1.4.1 one move, melee, one move
+		1.4.4 one move, melee, melee
+		1.4.5 one move, melee, cannon
+	
+	1.5 one move, cannon
+	
+		1.5.1 one move, cannon, one move
+		1.5.4 one move, cannon, melee
+		1.5.5 one move, cannon, cannon
+		
+2. 	two move
+
+	2.1		two move, one move
+	2.4		two move, melee
+	2.5		two move, cannon
+	
+3	three move
+
+4.	melee
+
+	4.1.	melee, one move
+	
+		4.1.1	melee, one move, one move
+		4.1.4	melee, one move, melee
+		4.1.5	melee, one move, cannon
+		
+	4.2		melee, two move
+	
+	4.4.	melee, melee
+	
+		4.4.1	melee, melee, one move
+		4.4.4	melee, melee, melee
+		4.4.5	melee, melee, cannon
+	
+	4.5.	melee, cannon
+	
+		4.5.1	melee, cannon, one move
+		4.5.4	melee, cannon, melee
+		4.5.5	melee, cannon, cannon
+	
+5.	cannon
+
+	5.1.	cannon, one move
+	
+		5.1.1	cannon, one move, one move
+		5.1.4	cannon, one move, melee
+		5.1.5	cannon, one move, cannon
+	
+	5.2		cannon, two move
+	
+	5.4.	cannon, melee
+	
+		5.4.1	cannon, melee, one move
+		5.4.4	cannon, melee, melee
+		5.4.5	cannon, melee, cannon
+		
+	5.5.	cannon, cannon
+	
+		5.5.1	cannon, cannon, one move
+		5.5.4	cannon, cannon, melee
+		5.5.5	cannon, cannon, cannon
+		

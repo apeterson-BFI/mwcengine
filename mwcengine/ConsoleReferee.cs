@@ -76,9 +76,8 @@ namespace MWCChessEngine
 
                     int eval = canonical.evaluate(lme);
                     int q = canonical.quietTime;
-                    long nodes = ((LowMemoryEngine)active).nodeCount;
 
-                    Console.WriteLine("({2:HH:mm:ss}) {0}{1} {3} (eval: {4}, qtime: {5}, nodes: {6})", turn, elip[index], DateTime.Now, next.showNotation(canonical), eval, q, nodes);
+                    Console.WriteLine("({2:HH:mm:ss}) {0}{1} {3} (eval: {4}, qtime: {5})", turn, elip[index], DateTime.Now, next.showNotation(canonical), eval, q);
                 }
                 else
                 {

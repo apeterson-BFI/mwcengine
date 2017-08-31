@@ -44,7 +44,7 @@ namespace MWCChessEngine
         }
 
         public void generate()
-        {
+       {
             createCannonActions();
             createMeleeActions();
             createMovementActions();
@@ -67,50 +67,36 @@ namespace MWCChessEngine
         {
             ulong cannons = friendMask & active.rooks;
 
-            RawAction rw = new RawAction();
-
             if (cannons != 0UL)
             {
                 ulong fstCannon = Position.leastSigOneBit(cannons);
                 ulong lstCannon = Position.mostSigOneBit(cannons);
 
-                if (fstCannon != 0UL)
+                tryCannonAction(fstCannon);
+                tryCannonAction(lstCannon);
+            }
+        }
+
+        private void tryCannonAction(ulong cannon)
+        {
+            RawAction rw;
+
+            if (cannon != 0UL)
+            {
+                int coor = Position.log2(cannon);
+
+                for (int i = 0; i < 8; i++)
                 {
-                    int fstCoor = Position.log2(fstCannon);
+                    rw = findCannonActionsForMask(coor, Position.rayMasks[i, coor]);
 
-                    for (int i = 0; i < 8; i++)
+                    if (rw.actionType == ActionType.none)
                     {
-                        rw = findCannonActionsForMask(fstCoor, Position.rayMasks[i, fstCoor]);
-
-                        if (rw.actionType == ActionType.none)
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            storedActions[actionCount] = rw;
-                            actionCount++;
-                        }
+                        continue;
                     }
-                }
-
-                if (lstCannon != 0UL)
-                {
-                    int lstCoor = Position.log2(lstCannon);
-
-                    for (int i = 0; i < 8; i++)
+                    else
                     {
-                        rw = findCannonActionsForMask(lstCoor, Position.rayMasks[i, lstCoor]);
-
-                        if (rw.actionType == ActionType.none)
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            storedActions[actionCount] = rw;
-                            actionCount++;
-                        }
+                        storedActions[actionCount] = rw;
+                        actionCount++;
                     }
                 }
             }

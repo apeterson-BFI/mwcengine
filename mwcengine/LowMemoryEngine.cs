@@ -14,8 +14,6 @@ namespace MWCChessEngine
 
         private Random rnm;
 
-        public long nodeCount;
-
         public int nEquals;
 
         public Position active;
@@ -29,7 +27,6 @@ namespace MWCChessEngine
 
             active = new Position();
 
-            nodeCount = 0;
             nEquals = 0;
         }
 
@@ -42,7 +39,6 @@ namespace MWCChessEngine
         {
             active = node;
 
-            nodeCount = 0;
             nEquals = 0;
             return findBestAction(6);
         }
@@ -62,7 +58,7 @@ namespace MWCChessEngine
             ActionGen gen = new ActionGen(active, activeColor);
             gen.generate();
 
-            nodeCount = gen.actionCount;
+            int nodeCount = gen.actionCount;
 
             Rewinder rewind = new Rewinder();
 
@@ -156,7 +152,7 @@ namespace MWCChessEngine
             ActionGen gen = new ActionGen(active, activeColor);
             gen.generate();
 
-            nodeCount = gen.actionCount;
+            int nodeCount = gen.actionCount;
 
             if (depth == 0)
             {
@@ -182,7 +178,7 @@ namespace MWCChessEngine
                     throw new ArgumentException("No RawAction action type found.");
                 }
 
-                if (depth == 1)
+                if (depth == 1) 
                 {
                     s = active.evaluate(this);
                 }
