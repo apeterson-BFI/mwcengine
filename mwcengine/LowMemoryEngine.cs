@@ -18,6 +18,9 @@ namespace MWCChessEngine
 
         public Position active;
 
+        private PositionHasher hasher = new PositionHasher();
+        private Dictionary<ulong, int> evalHasher;
+
         public LowMemoryEngine(int[] pieceScore, int pawnNeighborWeight, int advancedRankWeight)
         {
             this.pieceScore = pieceScore;
@@ -26,6 +29,9 @@ namespace MWCChessEngine
             this.rnm = new Random();
 
             active = new Position();
+
+            hasher = new PositionHasher();
+            evalHasher = new Dictionary<ulong, int>();
 
             nEquals = 0;
         }
@@ -156,7 +162,7 @@ namespace MWCChessEngine
 
             if (depth == 0)
             {
-                return active.evaluate(this);
+                return hashEval(active);
             }
 
             // index = 0 : no actions could be generated - stalemate
@@ -180,7 +186,7 @@ namespace MWCChessEngine
 
                 if (depth == 1) 
                 {
-                    s = active.evaluate(this);
+                    s = hashEval(active);
                 }
                 else
                 {
@@ -211,6 +217,22 @@ namespace MWCChessEngine
             else
             {
                 return beta;
+            }
+        }
+
+        public int hashEval(Position p)
+        {
+            ulong hash = hasher.hash(p);
+
+            if(evalHasher.ContainsKey(hash))
+            {
+                return evalHasher[hash];
+            }
+            else
+            {
+                int eval = p.evaluate(this);
+                evalHasher.Add(hash, eval);
+                return eval;
             }
         }
 
