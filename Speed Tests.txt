@@ -1,0 +1,16 @@
+10/17/2014 - (LowMem, BitBoard)
+	LowMemoryEngine(new int[] { 0, 50, 700, 600, 1200, 900, 1400, 0, 0, -50, -700, -600, -1200, -900, -1400, 0 }, 50, 1
+	33 moves @ 6 ply search each in: 26:35.41
+
+
+10/17/2014 - (LowMem, Bitboard)
+	LowMemoryEngine(new int[] { 0, 50, 700, 600, 1200, 900, 1400, 0, 0, -50, -700, -600, -1200, -900, -1400, 0 }, 50, 1
+	33 moves @ 6 ply search each in: 14:09.23
+
+10/17/2014 - (LowMem, BitBoard)
+	LowMemoryEngine(new int[] { 0, 50, 700, 600, 1200, 900, 1400, 0, 0, -50, -700, -600, -1200, -900, -1400, 0 }, 50, 1
+	33 moves @ 6 ply search each in: 15:42.66
+
+10/20/2014 - (LowMem, BitBoard)
+	LowMemoryEngine(new int[] { 0, 50, 700, 600, 1200, 900, 1400, 0, 0, -50, -700, -600, -1200, -900, -1400, 0 }, 50, 1
+	33 moves @ 6 ply search each in: 12	

@@ -1,0 +1,62 @@
+        // What can you do in 3 actions.
+        // The net effect of these 3 will be seen as a CompositeAction
+
+        // 3 ACTION COMBOS
+
+        // Name: Cannon Shot in Cover
+        // Situation: Cannon w/ ray with one friendly piece and one target enemy piece.
+        // Actions: Move covering piece, cannon attack, return covering piece
+
+        // Name: Pole Attack
+        // Situation: Target piece can be meleed with the help of a 
+        // piece that's at a 2 square distance from the target
+        // Actions: Move piece, attack with moved piece, return piece
+
+        // Name: Duo Attack
+        // Situation: Target piece can be meleed with the help of
+        // two pieces thare are 2 squares from target
+        // Actions: Move piece 1, Move piece 2, melee target
+
+        // Name: Piece Triple Move
+        // Situation: A piece has room to move three times and reach its target square
+        // Actions: Move piece along to its target square
+
+        // Name: Melee Triple Attack
+        // Situation: There are three melee targets that already qualify before the turn
+        // Attacks: Melee targets m1, m2, m3
+
+        // Name: Cannon Triple Attack
+        // Situation: There are three cannon targets that already qualify before the turn
+        // Attacks: Cannon targets c1, c2, c3 with either cannon
+
+        // Name: Charging Double Attack
+        // Situation: A piece moves into place, and then 2 melee attacks happen.
+
+
+
+        // EXAMPLE CALCULATIONS:
+        // 
+        // Case 1: beginning board for white
+
+	// stall
+	// a2 - a3
+	// a2 - b3
+	// a2 - c3
+	// a2 - d3
+	// a2 - a4
+	// a2 - b4
+	// a2 - c4
+	// a2 - d4
+	// a2 - a5
+	// a2 - b5
+	// a2 - c5
+	// a2 - d5
+	// Absent obstacles, can go anywhere in his 3 x king region
+
+	// graph spread model ? : use graph theory to find reachability in the presence of obstacles
+	
+	// blocking
+
+pieces are blocked, whenever they can't be moved without another piece moving first
+melee can be blocked, if the melee attack can't succeed without another movement, melee or cannon happening first.
+
