@@ -74,6 +74,11 @@ namespace MWCChessEngine
                 ulong fstCannon = Position.leastSigOneBit(cannons);
                 ulong lstCannon = Position.mostSigOneBit(cannons);
 
+                if(fstCannon == lstCannon)
+                {
+                    lstCannon = 0UL;
+                }
+
                 if (fstCannon != 0UL)
                 {
                     int fstCoor = Position.log2(fstCannon);

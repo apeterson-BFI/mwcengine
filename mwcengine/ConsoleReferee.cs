@@ -11,6 +11,8 @@ namespace MWCChessEngine
         public Position canonical;
         private Agent[] agents;
 
+        private const bool writeBoard = true;
+
         public ConsoleReferee(Agent white, Agent black)
         {
             agents = new Agent[2];
@@ -76,14 +78,20 @@ namespace MWCChessEngine
 
                     int eval = canonical.evaluate(lme);
                     int q = canonical.quietTime;
-                    long nodes = ((LowMemoryEngine)active).nodeCount;
 
-                    Console.WriteLine("({2:HH:mm:ss}) {0}{1} {3} (eval: {4}, qtime: {5}, nodes: {6})", turn, elip[index], DateTime.Now, next.showNotation(canonical), eval, q, nodes);
+                    Console.WriteLine("({2:HH:mm:ss}) {0}{1} {3} (eval: {4}, qtime: {5})", turn, elip[index], DateTime.Now, next.showNotation(canonical), eval, q);
                 }
                 else
                 {
                     Console.WriteLine("{0}{1} {2} {3}", turn, elip[index], next.showNotation(canonical), DateTime.Now.ToLongTimeString());
                 }
+            }
+
+            if(writeBoard)
+            {
+                Console.WriteLine(canonical.ToString());
+                Console.WriteLine("Enter to continue");
+                string ln = Console.ReadLine();
             }
 
             return true;

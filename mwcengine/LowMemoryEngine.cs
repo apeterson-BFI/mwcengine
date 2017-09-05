@@ -14,8 +14,6 @@ namespace MWCChessEngine
 
         private Random rnm;
 
-        public long nodeCount;
-
         public int nEquals;
 
         public Position active;
@@ -29,7 +27,6 @@ namespace MWCChessEngine
 
             active = new Position();
 
-            nodeCount = 0;
             nEquals = 0;
         }
 
@@ -42,7 +39,6 @@ namespace MWCChessEngine
         {
             active = node;
 
-            nodeCount = 0;
             nEquals = 0;
             return findBestAction(6);
         }
@@ -50,7 +46,7 @@ namespace MWCChessEngine
         public RawAction findBestAction(int depth)
         {
             RawAction rw = new RawAction();
-
+            int nodeCount;
             int alpha = int.MinValue;
             int beta = int.MaxValue;
 
@@ -133,6 +129,8 @@ namespace MWCChessEngine
 
         private int AlphaBeta(int depth, int alpha, int beta)
         {
+            int nodeCount;
+
             if (active.white == 0)
             {
                 return Int32.MinValue;

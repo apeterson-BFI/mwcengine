@@ -48,6 +48,8 @@ namespace MWCChessEngine
         public static int[] whiteRankBits = new int[8];
         public static int[] blackRankBits = new int[8];
 
+        private static string[] bvals = new string[] { " ", "P", "N", "B", "R", "Q", "K", " ", " ", "p", "n", "b", "r", "q", "k" };
+
         public const int pawnNeighborBonus = 1;
 
         // Pawn -   0 att.  , 1 def.
@@ -338,7 +340,7 @@ namespace MWCChessEngine
         }
 
         public static ulong leastSigOneBit(ulong x)
-        {
+       {
             ulong r = x & (0 - x);
 
             return r;
@@ -1230,19 +1232,38 @@ namespace MWCChessEngine
             }
 
             text += colorName + " turn. " + actionsLeft + " actions left. \n ";
-            text += "Quiet Time (120 = draw): " + quietTime + "\n ";
+            text += "Quiet Time (120 = draw): " + quietTime + "\n";
             
             for(int r = 0; r < 8; r++)
             {
                 for(int c = 0; c < 8; c++)
                 {
-                    text += " " + board[r * 8 + c].ToString();
+                    text += boardSQ(board[r * 8 + c]);
                 }
 
                 text += "\n";
             }
 
             return text;
+        }
+
+        public string boardSQ(int val)
+        {
+            /*             ulong whitePawn = white & pawns ;    // 1
+            ulong whiteKnight = white & knights;  // 2
+            ulong whiteBishop = white & bishops;  // 3
+            ulong whiteRook = white & rooks;    // 4
+            ulong whiteQueen = white & queens;  // 5
+            ulong whiteKing = white & kings;    // 6
+            ulong blackPawn = black & pawns;    // 9
+            ulong blackKnight = black & knights;  // 10
+            ulong blackBishop = black & bishops;  // 11
+            ulong blackRook = black & rooks;    // 12
+            ulong blackQueen = black & queens;   // 13
+            ulong blackKing = black & kings;    // 14
+            */
+
+            return bvals[val];
         }
     }
 }
