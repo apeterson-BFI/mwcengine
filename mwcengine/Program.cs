@@ -13,14 +13,13 @@ namespace MWCChessEngine
             // blank, white p, white knight, white bishop, white rook, white queen, white king, blank, blank, black p, black knight, black bishop, black rook, black queen, black king, blank,
             // Pawn neighbor bonus, Piece advanced rank bonus.
 
-            // Pawn structure player 1
-            LowMemoryEngine e = new LowMemoryEngine(new int[] { 0, 50, 700, 600, 1200, 900, 1400, 0, 0, -50, -700, -600, -1200, -900, -1400, 0 }, 50, 10);
+
+            LowMemoryEngine e = new LowMemoryEngine(new int[] { 0, 150, 700, 600, 1200, 900, 800, 0, 0, -150, -700, -600, -1200, -900, -800, 0 }, 20, 5);
             ConsolePlayer p = new ConsolePlayer();
 
-            // low pawn structure
-            LowMemoryEngine e2 = new LowMemoryEngine(new int[] { 0, 50, 700, 600, 1200, 900, 1400, 0, 0, -50, -700, -600, -1200, -900, -1400, 0 }, 10, 10);
+            LowMemoryEngine e2 = new LowMemoryEngine(new int[] { 0, 150, 700, 600, 1200, 900, 800, 0, 0, -150, -700, -600, -1200, -900, -800, 0 }, 20, 5);
 
-            ConsoleReferee r = new ConsoleReferee(e, e2);
+            ConsoleReferee r = new ConsoleReferee(p, e2);
             EndState end = r.play(true);
 
             if (end == EndState.WhiteWins)

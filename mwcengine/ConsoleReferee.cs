@@ -90,8 +90,7 @@ namespace MWCChessEngine
             if(writeBoard)
             {
                 Console.WriteLine(canonical.ToString());
-                Console.WriteLine("Enter to continue");
-                string ln = Console.ReadLine();
+                Console.WriteLine();
             }
 
             return true;
