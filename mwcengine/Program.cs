@@ -19,7 +19,7 @@ namespace MWCChessEngine
 
             LowMemoryEngine e2 = new LowMemoryEngine(new int[] { 0, 150, 700, 600, 1200, 900, 800, 0, 0, -150, -700, -600, -1200, -900, -800, 0 }, 20, 5);
 
-            ConsoleReferee r = new ConsoleReferee(p, e2);
+            ConsoleReferee r = new ConsoleReferee(e, e2);
             EndState end = r.play(true);
 
             if (end == EndState.WhiteWins)

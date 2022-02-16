@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "666238b7-dc26-414c-a64b-0ffb7b09a5b2": {
+      "ProjectGuid": "666238b7-dc26-414c-a64b-0ffb7b09a5b2",
+      "DisplayName": "MWCChessEngine",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
